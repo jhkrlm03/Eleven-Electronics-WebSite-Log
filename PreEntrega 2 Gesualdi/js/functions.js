@@ -1,18 +1,20 @@
-const iva = 21, //Argentinian Value Added Tax
+const iva = 21,
 
-  addIva = (priceWhitoutIva) => priceWhitoutIva + (priceWhitoutIva * iva) / 100,
 
-  addDiscount = (price, discount) => price - (price * discount) / 100,
+ addIva = (priceWhitoutIva) => priceWhitoutIva + (priceWhitoutIva * iva) / 100,
 
-  invalid = () => alert("EL DATO INGRESADO NO FUE VALIDO"),
+ addDiscount = (price, discount) => price - (price * discount) / 100,
 
-  loopChecker = (array) =>
-    array[0] % 1 !== 0 || array[0] < 0 || (array[0] > 0 && array[0] > array[1]), 
+ invalid = () => alert("EL DATO INGRESADO NO FUE VALIDO"),
 
-  printPriceARG = (price) =>
+
+ loopChecker = (array) =>
+    array[0] % 1 !== 0 || array[0] < 0 || (array[0] > 0 && array[0] > array[1]),
+
+ printPriceARG = (price) =>
     "$" + new Intl.NumberFormat("es-AR", {}).format(price),
 
-  getRapidInfo = (element) =>
+ getRapidInfo = (element) =>
     element.brand + " " + element.name + " " + printPriceARG(element.price),
   
   getCategories = (selection) => {
@@ -79,8 +81,6 @@ const iva = 21, //Argentinian Value Added Tax
     ).filter(
       (el) => el[1] !== false && el[0] !== "category" && el[1] !== undefined
     );
-
-    console.log(newArray);
 
     newArray[0][1] = printPriceARG(newArray[0][1]);
     return parseFloat(
