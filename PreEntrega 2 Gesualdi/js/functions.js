@@ -1,4 +1,5 @@
-const iva = 21, //Impuesto al Valor Agregado
+const iva = 21, //Argentinian Value Added Tax
+
   addIva = (priceWhitoutIva) => priceWhitoutIva + (priceWhitoutIva * iva) / 100,
 
   addDiscount = (price, discount) => price - (price * discount) / 100,
