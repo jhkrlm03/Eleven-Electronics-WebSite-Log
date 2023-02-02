@@ -1,6 +1,6 @@
 /**
  * The functions that the program need
- * @module functions 
+ * @module functions
  */
 
 /**
@@ -12,36 +12,36 @@ const iva = 21;
 /**
  * Add IVA tax to a specific price
  * @function addIva
- * @param {Number} priceWhitoutIva The original price of the product
+ * @param {Number} priceWhitOutIva The original price of the product
  * @returns {Number} The price with the IVA tax
  */
-const addIva = (priceWhitoutIva) => priceWhitoutIva + (priceWhitoutIva * iva) / 100;
+const addIva = (priceWhitOutIva) =>
+  priceWhitOutIva + (priceWhitOutIva * iva) / 100;
 
 /**
  * Add the discount that the user entered
  * @function addDiscount
  * @param {Number} price Original price
- * @param {Number} discount Discount persent value
- * @returns The price without the discount persent
+ * @param {Number} discount Discount percent value
+ * @returns The price without the discount percent
  */
 const addDiscount = (price, discount) => price - (price * discount) / 100;
 
+/**
+ * Format any number with the US style
+ * @param {*} price The price to format
+ * @returns {String} The formatted price
+ */
+const usPrice = (price) => new Intl.NumberFormat().format(price);
 
 /**
- * Returns the string which we can print with the argentinian price form
- * @param {Number} price The price we need to print
- * @returns {String} The string we can show to the user
+ * Remove the cero values of an array
+ * @param {Array} array The array to filter
+ * @returns {Array} The filtered array
  */
-const printPriceARG = (price) =>
-    "$" + new Intl.NumberFormat("es-AR", {}).format(price);
+const noCero = (array) => array.filter((el) => el !== 0);
 
-/**
- * To get the basic information of a product
- * @param {Object} element The obj with the product information that we need to get (brand, name, price)
- * @returns {String} The string with that information
- */
-/*const getRapidInfo = (element) =>
-    element.brand + " " + element.name + " " + printPriceARG(element.price);*/
+const sessionStorageSave = ({ key: string, value: array }) =>
+  sessionStorage.setItem(string, JSON.stringify(array));
 
-
-export{ iva, addIva, addDiscount, printPriceARG }
+export { iva, addIva, addDiscount, usPrice, noCero, sessionStorageSave };

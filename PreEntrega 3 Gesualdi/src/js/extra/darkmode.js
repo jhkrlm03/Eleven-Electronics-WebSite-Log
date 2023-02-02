@@ -1,11 +1,11 @@
 /**
- * The darkmdoe switcher
+ * The darkMode switcher
  * @type {HTMLElement}
  */
 const checkbox = document.getElementById("switch");
 
 /**
- * Applay the darkmode or lightmode effect
+ * Apply the darkMode or lightMode effect
  */
 const applicator = () => {
   if (localStorage.getItem("theme") === "DarkMode") {
@@ -28,20 +28,20 @@ const checker = () => {
 };
 
 /**
- * Definition and applaier of the darkmode
+ * Definition and applier of the darkMode
  */
 const darkModeOn = () => {
   checkbox.checked = true;
-  document.body.classList.add("darkmode");
+  document.body.classList.add("dark-mode");
   document.getElementById("isotype-header-logo").src =
     "../img/logo/Isotype.png";
 };
 
 /**
- * Definition and applaier of the lightmode
+ * Definition and applier of the lightMode
  */
 const lightModeOn = () => {
-  document.body.classList.remove("darkmode");
+  document.body.classList.remove("dark-mode");
   document.getElementById("isotype-header-logo").src =
     "../img/logo/Black Logo.png";
 };
@@ -56,4 +56,3 @@ checkbox.addEventListener(
   },
   false
 );
-

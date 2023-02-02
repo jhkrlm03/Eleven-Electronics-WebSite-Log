@@ -1,17 +1,17 @@
-import { addIva } from "./functions.js"
+import { addIva } from "./functions.js";
 
 class Product {
   constructor(input) {
     this.category = input.category;
     this.price = parseFloat(addIva(input.price).toFixed(2));
-    this.img = input.img
-    this.brand = input.brand;
     this.series = input.series;
+    this.img = input.img;
+    this.brand = input.brand;
     this.name = input.name;
   }
 }
 
-class GraficCard extends Product {
+class GraphicCard extends Product {
   constructor(input) {
     super(input);
     this.pci = input.pci;
@@ -28,7 +28,7 @@ class GraficCard extends Product {
     this.memoryType = input.memoryType;
     this.directX = input.directX;
     this.openGL = input.openGL;
-    this.multimonitor = input.multimonitor;
+    this.multiMonitor = input.multiMonitor;
     this.hdmi = input.hdmi;
     this.displayPort = input.displayPort;
     this.dvi = input.dvi;
@@ -37,9 +37,9 @@ class GraficCard extends Product {
     this.cooler = input.cooler;
     this.tdp = input.tdp;
     this.psuRecWattage = input.psuRecWattage;
-    this.conector = input.conector;
+    this.connector = input.connector;
     this.lowProfile = input.lowProfile;
-    this.dimensions = input.dimensions.toString();
+    this.dimensions = input.dimensions;
   }
 }
 
@@ -54,11 +54,9 @@ class Processor extends Product {
     this.coreName = input.coreName;
     this.cores = input.cores;
     this.threads = input.threads;
-    this.opFrecuency = input.opFrecuency.map((el) => el).join("\n");
+    this.opFrecuency = input;
     this.maxFrecuency = input.maxFrecuency;
-    this.intelTurboBoostTech = input.intelTurboBoostTech
-      .map((el) => el.join(": "))
-      .join("\n");
+    this.intelTurboBoostTech = input.intelTurboBoostTech;
     this.l1Cache = input.l1Cache;
     this.l2Cache = input.l2Cache;
     this.l3Cache = input.l3Cache;
@@ -76,7 +74,7 @@ class Processor extends Product {
   }
 }
 
-class RapidAccesMemmory extends Product {
+class RapidAccessMemory extends Product {
   constructor(input) {
     super(input);
     this.model = input.model;
@@ -88,7 +86,7 @@ class RapidAccesMemmory extends Product {
     this.timing = input.timing;
     this.voltage = input.voltage;
     this.ecc = input.ecc;
-    this.bufferedRegeistered = input.bufferedRegeistered;
+    this.bufferedRegistered = input.bufferedRegistered;
     this.chipset = input.chipset;
     this.color = input.color;
     this.heatSpreader = input.heatSpreader;
@@ -107,4 +105,4 @@ class ComputerCases extends Product {
   }
 }
 
-export { Product, GraficCard, Processor, RapidAccesMemmory, ComputerCases };
+export { Product, GraphicCard, Processor, RapidAccessMemory, ComputerCases };
